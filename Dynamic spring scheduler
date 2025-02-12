@@ -42,3 +42,23 @@ static String p= "*/" + t + " * * * * ?";
         // Your logic for sending the email and updating statuses
     }
 
+// ===========================================================================================================================================
+
+
+
+//        String d="2023/12/02";
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+//
+//        LocalDate date=LocalDate.parse(d, formatter);
+//        System.out.println(date.plusMonths(6));
+
+
+        String d="2023-12-02";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        LocalDate date=LocalDate.parse(d, formatter);
+        System.out.println(date.plusMonths(6));
+
+
+// output ==> 2024-06-02
+
