@@ -62,3 +62,34 @@ static String p= "*/" + t + " * * * * ?";
 
 // output ==> 2024-06-02
 
+
+// ======================================= vvi =====================================================  condition that says This runs every day at midnight after 2nd december date only
+
+ the cron expression to run every day after December 2nd (not starting from a specific date but continuing every day after a certain date).
+ This means you'd want to adjust the cron expression dynamically, depending on the current date, so that it only starts after December 2nd and then runs every day thereafter.
+
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+import java.time.LocalDate;
+
+@Service
+public class MyScheduledService {
+
+    // This cron expression runs every day at midnight
+    @Scheduled(cron = "0 0 0 * * ?")
+    public void runDailyTask() {
+        // Check if the current date is after December 2nd
+        LocalDate today = LocalDate.now();
+        LocalDate startDate = LocalDate.of(today.getYear(), 12, 2);  // December 2nd of the current year
+
+        if (today.isAfter(startDate)) {
+            // Your task logic that should run after December 2nd
+            System.out.println("Running daily task after December 2nd!");
+        } else {
+            // Skip running the task if before December 2nd
+            System.out.println("It's before December 2nd, skipping task.");
+        }
+    }
+}
+
+
