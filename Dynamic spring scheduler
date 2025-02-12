@@ -20,3 +20,25 @@ public class CflServiceImpl {
         // Your logic for sending the email and updating statuses
     }
 }
+
+
+
+// =========================================================================================================================================
+
+
+
+static int t=1;
+//    static String p="*/t * * * * ?";
+static String p= "*/" + t + " * * * * ?";
+
+    public static  String CRON_EXPRESSION = p;
+
+    @Override
+    // Using the static cron expression with SpEL
+    @Scheduled(cron = "#{T(com.cfl.cfl_project.service.impl.CflServiceImpl).CRON_EXPRESSION}")
+    public void sendMailToManagerRegardingProbation() {
+        // Task logic here
+        System.out.println("Scheduled task executed");
+        // Your logic for sending the email and updating statuses
+    }
+
