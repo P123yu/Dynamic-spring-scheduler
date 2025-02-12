@@ -1,0 +1,22 @@
+package com.cfl.cfl_project.service.impl;
+
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CflServiceImpl {
+
+    // Declare the static cron expression variable
+    public static final String CRON_EXPRESSION = "*/1 * * * * ?"; // Example cron expression for every minute
+
+    // Your existing service methods go here...
+
+    // Using the static cron expression with SpEL
+    @Scheduled(cron = "#{T(com.cfl.cfl_project.service.impl.CflServiceImpl).CRON_EXPRESSION}")
+    public void sendMailToManagerRegardingProbation() {
+        // Task logic here
+        System.out.println("Scheduled task executed");
+
+        // Your logic for sending the email and updating statuses
+    }
+}
